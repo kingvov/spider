@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pluto.spider.dao.SysAreaMapper">
+    <insert id="insertBatch">
+        insert into sys_area(sys_area_id,sys_area_pid,sys_area_name, sys_area_type)
+        VALUES <foreach collection="list" item="item" separator=",">
+        (#{item.sysAreaId},#{item.sysAreaPid},#{item.sysAreaName},#{item.sysAreaType})
+      </foreach>
+    </insert>
+</mapper>
